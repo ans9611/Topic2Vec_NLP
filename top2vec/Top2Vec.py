@@ -108,8 +108,7 @@ def get_chunks(tokens, chunk_length, max_num_chunks, chunk_overlap_ratio):
         List of document chunks.
 
     """
-    num_tokens = len(tokens)
-    if num_tokens == 0:
+    if (num_tokens := len(tokens)) == 0:
         return [""]
 
     num_chunks = int(np.ceil(num_tokens / chunk_length))
@@ -146,8 +145,7 @@ def get_random_chunks(tokens, chunk_length, chunk_len_coverage_ratio, max_num_ch
         List of document chunks.
 
     """
-    num_tokens = len(tokens)
-    if num_tokens == 0:
+    if (num_tokens := len(tokens)) == 0:
         return [""]
 
     num_chunks = int(np.ceil(num_tokens * chunk_len_coverage_ratio / chunk_length))
@@ -1816,8 +1814,7 @@ class Top2Vec:
             smallest = np.argmin(top_sizes)
             res = np.inner(top_vecs[smallest], top_vecs)
             sims = np.flip(np.argsort(res))
-            most_sim = sims[1]
-            if most_sim == smallest:
+            if (most_sim := sims[1]) == smallest:
                 most_sim = sims[0]
 
             # calculate combined topic vector
