@@ -584,7 +584,7 @@ class Top2Vec:
 
             if len(vocab_inds) == 0:
                 raise ValueError(f"A min_count of {min_count} results in "
-                                 f"all words being ignored, choose a lower value.")
+                                 "all words being ignored, choose a lower value.")
             self.vocab = [words[ind] for ind in vocab_inds]
 
             if ngram_vocab:
@@ -777,7 +777,7 @@ class Top2Vec:
         # load document index
         if top2vec_model.documents_indexed:
             if not _HAVE_HNSWLIB:
-                raise ImportError(f"Cannot load document index.\n\n"
+                raise ImportError("Cannot load document index.\n\n"
                                   "Try: pip install top2vec[indexing]\n\n"
                                   "Alternatively try: pip install hnswlib")
 
@@ -794,7 +794,7 @@ class Top2Vec:
         if top2vec_model.words_indexed:
 
             if not _HAVE_HNSWLIB:
-                raise ImportError(f"Cannot load word index.\n\n"
+                raise ImportError("Cannot load word index.\n\n"
                                   "Try: pip install top2vec[indexing]\n\n"
                                   "Alternatively try: pip install hnswlib")
 
@@ -1069,7 +1069,7 @@ class Top2Vec:
     @staticmethod
     def _check_hnswlib_status():
         if not _HAVE_HNSWLIB:
-            raise ImportError(f"Indexing is not available.\n\n"
+            raise ImportError("Indexing is not available.\n\n"
                               "Try: pip install top2vec[indexing]\n\n"
                               "Alternatively try: pip install hnswlib")
 
